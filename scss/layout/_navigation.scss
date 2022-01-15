@@ -13,6 +13,8 @@
     right: 6rem;
     z-index: 1002;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.2);
+    text-align: center;
+    cursor: pointer;
   }
 
   &__background {
@@ -24,8 +26,8 @@
     right: 6.5rem;
     background-image: radial-gradient(
       circle at center,
-      rgba($color-primary-light, 0.95),
-      rgba($color-primary-dark, 0.95)
+      rgba($color-primary-light, 1),
+      rgba($color-primary-dark, 1)
     );
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
@@ -79,6 +81,7 @@
     }
   }
 
+  // Functionality
   &__checkbox:checked ~ &__background {
     transform: scale(100);
   }
@@ -86,5 +89,64 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  // Icon
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+      transform-origin: center; // defince where will be center of the rotation (in this case it's center of the icon) this line do not affect the final result
+    }
+
+    &::after {
+      top: 0.8rem;
+      transform-origin: center;
+    }
+  }
+
+  &__button:hover &__icon {
+    &::before {
+      top: -1rem;
+    }
+
+    &::after {
+      top: 1rem;
+    }
+  }
+
+  &__checkbox:checked ~ &__button &__icon {
+    background-color: transparent;
+
+    &::before {
+      color: $color-grey-dark-3;
+      top: 0;
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      color: $color-grey-dark-3;
+      top: 0;
+      transform: rotate(-135deg);
+    }
   }
 }
