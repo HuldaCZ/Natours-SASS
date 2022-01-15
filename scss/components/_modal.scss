@@ -1,0 +1,68 @@
+.modal {
+  &__backdrop {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__frame {
+    position: absolute;
+    @include centerMiddle;
+
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    display: table;
+    overflow: hidden;
+
+    &_left {
+      width: 33.3333333%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    &_right {
+      width: 66.6666667%;
+      display: table-cell;
+      vertical-align: middle;
+      padding: 3rem 5rem;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    column-count: 2;
+    column-gap: 2rem;
+    column-rule: 1px solid $color-grey-light-2;
+
+    -moz-column-count: 2;
+    -moz-column-gap: 2rem;
+    -moz-column-rule: 1px solid $color-grey-light-2;
+
+    -webkit-column-count: 2;
+    -webkit-column-gap: 2rem;
+    -webkit-column-rule: 1px solid $color-grey-light-2;
+
+    hyphens: auto; // On HTML tag must be defined language
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
