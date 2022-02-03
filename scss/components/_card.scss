@@ -179,7 +179,8 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  // Hover none check for avialibility of hover functionallity for example on touch screens 
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: #ffffff;
@@ -190,7 +191,7 @@
       font-size: 2rem;
       position: relative;
       background-color: #ffffff;
-      box-shadow:none;
+      box-shadow: none;
       &--back {
         transform: rotateY(0deg);
         clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
@@ -212,7 +213,7 @@
       left: 0;
       transform: translate(0);
       width: 100%;
-      padding: 7rem 4rem 4rem 4rem; 
+      padding: 7rem 4rem 4rem 4rem;
     }
 
     &__price-box {

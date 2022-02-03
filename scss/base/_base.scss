@@ -38,3 +38,8 @@ body {
 
 
 }
+
+::selection {
+  background: $color-primary;
+  color: $color-white;
+}
