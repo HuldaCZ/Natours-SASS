@@ -761,6 +761,13 @@ body {
   visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
+@supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+  .modal {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
 .modal:target {
   opacity: 1;
   visibility: visible;
@@ -795,7 +802,6 @@ body {
   border-radius: 4px;
   display: table;
   overflow: hidden;
-  opacity: 0;
   visibility: hidden;
   transform: translate(-50%, -50%) scale(0.25);
   transition: all 0.5s 0.1s ease-in-out;
